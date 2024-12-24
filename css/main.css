@@ -773,6 +773,17 @@ pre {
   overflow: hidden;
   white-space: normal;
 }
+img.aboutimg {
+  display: block;
+  margin: 20px auto; /* 居中对齐 */
+  width: 450px; /* 设置图片宽度 */
+  height: 450px; /* 设置图片高度 */
+  border-radius: 50%; /* 圆形效果 */
+  object-fit: cover; /* 图片裁剪适应容器 */
+  background: #f7f7f7; /* 添加背景色，与页面协调 */
+  padding: 10px; /* 添加内边距 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
 pre,
 code,
 .hljs,
@@ -785,9 +796,11 @@ table:not(.hljs-ln) {
 }
 table:not(.hljs-ln) td:nth-child(even) {
   background: #c7e0fb4d;
+  width: 100%;
 }
 table:not(.hljs-ln) td:nth-child(odd) {
   background: #d9e8ff4d;
+  width: 10%;
 }
 table:not(.hljs-ln) th {
   background: #a3ddfb;
@@ -796,6 +809,7 @@ table:not(.hljs-ln) tr th,
 table:not(.hljs-ln) tr td {
   border-radius: 3px;
   padding: 10px 20px;
+  text-align: left;
 }
 ul li,
 ol li {

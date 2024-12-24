@@ -3,7 +3,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | HenRs的小窩</title>
+    <title>Archives | HenRsの小窩</title>
     <meta name="author" content="HenRs" />
     <meta name="description" content="有關於『我』" />
     <meta name="keywords" content="" />
@@ -41,6 +41,8 @@
 
 
 
+<script src="/js/lib/search.js"></script>
+
 
 
 <link rel="stylesheet" href="/css/main.css" />
@@ -59,7 +61,7 @@
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
-            <span>HENRS的小窩</span>
+            <span>HENRSの小窩</span>
         </a>
         
         <a href="/">
@@ -91,7 +93,7 @@
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;HENRS的小窩</span>
+            <span>&emsp;HENRSの小窩</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -153,31 +155,78 @@
             
 <div id="archives">
     
+    <input id="search-bar" class="input" placeholder="搜尋" v-model="rawSearch" />
+    
     <div id="timeline-wrap" ref="timeline">
         
-        <div class="timeline" data-title="helloworld">
+        <div class="timeline" data-title="mern專案step">
             <div class="timeline-tail"></div>
             <div class="timeline-content">
-                <div class="item-time">2024/12/23</div>
-                <a href="/2024/12/23/hello-world/">
-                    <h3>Hello World</h3>
+                <div class="item-time">2024/11/24</div>
+                <a href="/2024/11/24/MERN/">
+                    <h3>MERN 專案STEP</h3>
                 </a>
                 <div class="info">
                     
+                    <span class="category">
+                        <a href="/categories/Web-Development/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            Web Development
+                        </a>
+                    </span>
                     
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="mern">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/12/23</div>
-                <a href="/2024/12/23/MERN/">
-                    <h3>MERN</h3>
-                </a>
-                <div class="info">
                     
+                    <span class="tags">
+                        <span class="icon">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </span>
+                        
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/MERN/" style="color: #ff7d73">
+                                MERN
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/MongoDB/" style="color: #00bcd4">
+                                MongoDB
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Express/" style="color: #ff7d73">
+                                Express
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/React/" style="color: #ffa2c4">
+                                React
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/Node-js/" style="color: #00bcd4">
+                                Node.js
+                            </a>
+                        </span>
+                        
+                        <span class="tag">
+                            
+                            <a href="/tags/%E5%85%A8%E7%AB%AF%E9%96%8B%E7%99%BC/" style="color: #ff7d73">
+                                全端開發
+                            </a>
+                        </span>
+                        
+                    </span>
                     
                 </div>
             </div>
@@ -190,7 +239,7 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2024 - 2024 HenRs的小窩
+            2024 - 2024 HenRsの小窩
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>

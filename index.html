@@ -3,7 +3,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="utf-8" />
-    <title>HenRs的小窩</title>
+    <title>HenRsの小窩</title>
     <meta name="author" content="HenRs" />
     <meta name="description" content="有關於『我』" />
     <meta name="keywords" content="" />
@@ -61,7 +61,7 @@
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
-            <span>HENRS的小窩</span>
+            <span>HENRSの小窩</span>
         </a>
         
         <a href="/">
@@ -93,7 +93,7 @@
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;HENRS的小窩</span>
+            <span>&emsp;HENRSの小窩</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -165,7 +165,7 @@
         <span class="loop"></span>
         <span class="info">
             <div class="wrap">
-                <h1>HenRs的小窩</h1>
+                <h1>HenRsの小窩</h1>
                 <h3></h3>
                 <h5>有關於『我』</h5>
             </div>
@@ -178,79 +178,95 @@
     true
 >
     <div id="home-posts">
-        
-
+         
 <div class="post">
-    <a href="/2024/12/23/MERN/">
-        <h2 class="post-title">MERN</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/12/23
+  <a href="/2024/11/24/MERN/">
+    <h2 class="post-title">MERN 專案STEP</h2>
+  </a>
+  <div class="category-and-date">
+    
+    <span class="category">
+      <a href="/categories/Web-Development/">
+        <span class="icon">
+          <i class="fa-solid fa-bookmark fa-fw"></i>
         </span>
-        
-        
+        Web Development
+      </a>
+    </span>
+    
+    <span class="date">
+      <span class="icon">
+        <i class="fa-solid fa-calendar fa-fw"></i>
+      </span>
+      2024/11/24
+    </span>
+     
+  </div>
+  <div class="description">
+    <div class="content" v-pre>
+       <h2 id="什麼是-MERN-Stack？"><a href="#什麼是-MERN-Stack？" class="headerlink" title="什麼是 MERN Stack？"></a>什麼是 MERN Stack？</h2><p>MERN 代表 <strong>MongoDB, Express, React, Node.js</strong>，是一套強大的全端開發技術棧，讓開發者能夠以 <strong>JavaScript</strong> 打造從後端到前端的完整應用程式。</p>
+<ul>
+<li><strong>MongoDB</strong>: NoSQL 資料庫，適合儲存 JSON 格式的文件型資料。</li>
+<li><strong>Express</strong>: Node.js 上的輕量框架，提供後端 API 和中介軟體功能。</li>
+<li><strong>React</strong>: 用於建構前端用戶界面 (UI) 的 JavaScript 函式庫。</li>
+<li><strong>Node.js</strong>: 提供後端運行環境，可執行 JavaScript 程式碼。</li>
+</ul>
+<hr>
+<h2 id="MERN-專案架構概覽"><a href="#MERN-專案架構概覽" class="headerlink" title="MERN 專案架構概覽"></a>MERN 專案架構概覽</h2><p>一個典型的 MERN 專案會包含以下結構：</p>
+<p>my-mern-project&#x2F; ├── backend&#x2F; # 後端程式碼 │ ├── models&#x2F; # MongoDB 資料模型 │ ├── routes&#x2F; # Express 路由和 API │ └── server.js # Node.js 伺服器入口 ├── frontend&#x2F; # 前端程式碼 │ ├── src&#x2F; │ │ ├── components&#x2F; # React 組件 │ │ ├── pages&#x2F; # 應用程式頁面 │ │ └── App.js # React 應用入口 ├── .env # 環境變數配置 ├── package.json # 依賴與腳本設定 └── README.md # 專案說明文件</p>
+<hr> 
     </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/12/23/MERN/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2024/12/23/hello-world/">
-        <h2 class="post-title">Hello World</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/12/23
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/12/23/hello-world/" class="go-post">阅读全文</a>
+  </div>
+  <div class="post-tags">
+    
+    <span class="icon">
+      <i class="fa-solid fa-tags fa-fw"></i>
+    </span>
+      
+    <span class="tag">
+      
+      <a href="/tags/MERN/" style="color: #03a9f4"
+        >MERN</a
+      >
+    </span>
+    
+    <span class="tag">
+      
+      <a href="/tags/MongoDB/" style="color: #ff7d73"
+        >MongoDB</a
+      >
+    </span>
+    
+    <span class="tag">
+      
+      <a href="/tags/Express/" style="color: #00a596"
+        >Express</a
+      >
+    </span>
+    
+    <span class="tag">
+      
+      <a href="/tags/React/" style="color: #00bcd4"
+        >React</a
+      >
+    </span>
+    
+    <span class="tag">
+      
+      <a href="/tags/Node-js/" style="color: #ff7d73"
+        >Node.js</a
+      >
+    </span>
+    
+    <span class="tag">
+      
+      <a href="/tags/%E5%85%A8%E7%AB%AF%E9%96%8B%E7%99%BC/" style="color: #00bcd4"
+        >全端開發</a
+      >
+    </span>
+    
+  </div>
+  <a href="/2024/11/24/MERN/" class="go-post">閱讀全文</a>
 </div>
 
 
@@ -333,7 +349,7 @@
     <div id="footer-wrap">
         <div>
             &copy;
-            2024 - 2024 HenRs的小窩
+            2024 - 2024 HenRsの小窩
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
