@@ -781,6 +781,7 @@ img.aboutimg {
   border-radius: 50%; /* 圆形效果 */
   object-fit: cover; /* 图片裁剪适应容器 */
   background: #f7f7f7; /* 添加背景色，与页面协调 */
+  margin-top: 6rem;
   padding: 10px; /* 添加内边距 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }

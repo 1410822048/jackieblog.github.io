@@ -163,15 +163,15 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/11/24
+            2024/8/24
         </span>
         
         <span class="category">
-            <a href="/categories/Web-Development/">
+            <a href="/categories/%E4%BD%9C%E5%93%81/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                Web Development
+                作品
             </a>
         </span>
         
@@ -184,35 +184,35 @@
             
             <span class="tag">
                 
-                <a href="/tags/MERN/" style="color: #ff7d73">
+                <a href="/tags/MERN/" style="color: #03a9f4">
                     MERN
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/MongoDB/" style="color: #00bcd4">
+                <a href="/tags/MongoDB/" style="color: #ffa2c4">
                     MongoDB
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/Express/" style="color: #03a9f4">
+                <a href="/tags/Express/" style="color: #ff7d73">
                     Express
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/React/" style="color: #00a596">
+                <a href="/tags/React/" style="color: #ffa2c4">
                     React
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/Node-js/" style="color: #ff7d73">
+                <a href="/tags/Node-js/" style="color: #00a596">
                     Node.js
                 </a>
             </span>
@@ -236,13 +236,28 @@
 <li><strong>React</strong>: 用於建構前端用戶界面 (UI) 的 JavaScript 函式庫。</li>
 <li><strong>Node.js</strong>: 提供後端運行環境，可執行 JavaScript 程式碼。</li>
 </ul>
-<hr>
-<h2 id="MERN-專案架構概覽"><a href="#MERN-專案架構概覽" class="headerlink" title="MERN 專案架構概覽"></a>MERN 專案架構概覽</h2><p>一個典型的 MERN 專案會包含以下結構：</p>
-<p>my-mern-project&#x2F; ├── backend&#x2F; # 後端程式碼 │ ├── models&#x2F; # MongoDB 資料模型 │ ├── routes&#x2F; # Express 路由和 API │ └── server.js # Node.js 伺服器入口 ├── frontend&#x2F; # 前端程式碼 │ ├── src&#x2F; │ │ ├── components&#x2F; # React 組件 │ │ ├── pages&#x2F; # 應用程式頁面 │ │ └── App.js # React 應用入口 ├── .env # 環境變數配置 ├── package.json # 依賴與腳本設定 └── README.md # 專案說明文件</p>
-<hr>
 <span id="more"></span>
 
-<h2 id="專案步驟與核心功能"><a href="#專案步驟與核心功能" class="headerlink" title="專案步驟與核心功能"></a>專案步驟與核心功能</h2><h3 id="1-設置-MongoDB-資料庫"><a href="#1-設置-MongoDB-資料庫" class="headerlink" title="1. 設置 MongoDB 資料庫"></a>1. 設置 MongoDB 資料庫</h3><p>在 MongoDB Atlas 或本地端設置資料庫，並連結到專案：</p>
+<hr>
+<h2 id="MERN-專案架構概覽"><a href="#MERN-專案架構概覽" class="headerlink" title="MERN 專案架構概覽"></a>MERN 專案架構概覽</h2><p>一個典型的 MERN 專案會包含以下結構：</p>
+<pre><code class="text">my-mern-project/
+├── backend/                 # 後端程式碼
+│   ├── models/              # MongoDB 資料模型
+│   ├── routes/              # Express 路由和 API
+│   └── server.js            # Node.js 伺服器入口
+├── frontend/                # 前端程式碼
+│   ├── src/
+│   │   ├── components/      # React 組件
+│   │   ├── pages/           # 應用程式頁面
+│   │   └── App.js           # React 應用入口
+├── .env                     # 環境變數配置
+├── package.json             # 依賴與腳本設定
+└── README.md                # 專案說明文件
+</code></pre>
+<h2 id="專案步驟與核心功能"><a href="#專案步驟與核心功能" class="headerlink" title="專案步驟與核心功能"></a>專案步驟與核心功能</h2><h3 id="1-打開-VS-Code-先在終端運行以下指令，如未特別設置全都默認即可"><a href="#1-打開-VS-Code-先在終端運行以下指令，如未特別設置全都默認即可" class="headerlink" title="1. 打開 VS Code 先在終端運行以下指令，如未特別設置全都默認即可"></a>1. 打開 VS Code 先在終端運行以下指令，如未特別設置全都默認即可</h3><pre><code class="bash">npm init
+npm install express dotenv bcrypt mongoose
+</code></pre>
+<h3 id="2-設置-MongoDB-資料庫"><a href="#2-設置-MongoDB-資料庫" class="headerlink" title="2. 設置 MongoDB 資料庫"></a>2. 設置 MongoDB 資料庫</h3><p>在 MongoDB Atlas 或本地端設置資料庫，並連結到專案：</p>
 <pre><code class="js">const mongoose = require(&quot;mongoose&quot;);
 const MONGO_URI = process.env.MONGO_URI;
 require(&quot;dotenv&quot;).config();
@@ -252,7 +267,7 @@ mongoose
   .then(() =&gt; console.log(&quot;MongoDB 連線成功&quot;))
   .catch((err) =&gt; console.error(&quot;MongoDB 連線失敗:&quot;, err));
 </code></pre>
-<h3 id="2-建立-User-及-其他資料的相關-Model"><a href="#2-建立-User-及-其他資料的相關-Model" class="headerlink" title="2. 建立 User 及 其他資料的相關 Model"></a>2. 建立 User 及 其他資料的相關 Model</h3><p>基礎的 Schema 條件建置：</p>
+<h3 id="3-建立-User-及-其他資料的相關-Model"><a href="#3-建立-User-及-其他資料的相關-Model" class="headerlink" title="3. 建立 User 及 其他資料的相關 Model"></a>3. 建立 User 及 其他資料的相關 Model</h3><p>基礎的 Schema 條件建置：</p>
 <pre><code class="js">const mongoose = require(&quot;mongoose&quot;);
 const &#123; Schema &#125; = mongoose;
 
@@ -330,7 +345,7 @@ userSchema.pre(&quot;save&quot;, async function (next) &#123;
 
 module.exports = mongoose.model(&quot;User&quot;, userSchema);
 </code></pre>
-<h3 id="3-透過-JOI-建立各項驗證"><a href="#3-透過-JOI-建立各項驗證" class="headerlink" title="3. 透過 JOI 建立各項驗證"></a>3. 透過 JOI 建立各項驗證</h3><p>用於驗證用戶經過 Routes 的數據是否符合要求 ：</p>
+<h3 id="4-透過-JOI-建立各項驗證"><a href="#4-透過-JOI-建立各項驗證" class="headerlink" title="4. 透過 JOI 建立各項驗證"></a>4. 透過 JOI 建立各項驗證</h3><p>用於驗證用戶經過 Routes 的數據是否符合要求 ：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/joi">Joi</a></li>
 </ul>
@@ -396,7 +411,9 @@ const loginValidation = (data) =&gt; &#123;
 module.exports.registorValidation = registorValidation;
 module.exports.loginValidation = loginValidation;
 </code></pre>
-<h3 id="4-建立-JWT-驗證的-middleware"><a href="#4-建立-JWT-驗證的-middleware" class="headerlink" title="4. 建立 JWT 驗證的 middleware"></a>4. 建立 JWT 驗證的 middleware</h3><p>透過 JWT 來驗證身份等相關資訊：</p>
+<h3 id="5-建立-JWT-驗證的-middleware"><a href="#5-建立-JWT-驗證的-middleware" class="headerlink" title="5. 建立 JWT 驗證的 middleware"></a>5. 建立 JWT 驗證的 middleware</h3><p>透過 JWT 來驗證身份等相關資訊：</p>
+<pre><code class="bash">npm install jsonwebtoken
+</code></pre>
 <pre><code class="js">const JWT = require(&quot;jsonwebtoken&quot;); //JWT 驗證
 //驗證 token
 function authenticateToken(req, res, next) &#123;
@@ -417,7 +434,7 @@ function authenticateToken(req, res, next) &#123;
   &#125;);
 &#125;
 </code></pre>
-<h3 id="5-建立-Express-後端-API"><a href="#5-建立-Express-後端-API" class="headerlink" title="5. 建立 Express 後端 API"></a>5. 建立 Express 後端 API</h3><p>設計 RESTful API，例如用於管理用戶的 CRUD 功能：</p>
+<h3 id="6-建立-Express-後端-API"><a href="#6-建立-Express-後端-API" class="headerlink" title="6. 建立 Express 後端 API"></a>6. 建立 Express 後端 API</h3><p>設計 RESTful API，例如用於管理用戶的 CRUD 功能：</p>
 <pre><code class="js">const router = require(&quot;express&quot;).Router();
 const User = require(&quot;../model&quot;).user;
 const bcrypt = require(&quot;bcrypt&quot;); //用於加密用戶訊息 ex.password
@@ -581,5 +598,11 @@ module.exports = router;
 
 
     
+    <canvas
+        id="fireworks"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"
+    ></canvas>
+    <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="/js/fireworks.min.js"></script>
 </body>
 </html>
