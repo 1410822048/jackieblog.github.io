@@ -575,6 +575,39 @@ body::-webkit-scrollbar-track {
   opacity: 0;
   transform: scale(1.1);
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  opacity: 0.5; /* 默认为透明 */
+  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.page-link:hover {
+  opacity: 1; /* 鼠标悬停时显示不透明 */
+}
+
+.page-link.current {
+  opacity: 1; /* 当前页显示完全不透明 */
+  font-weight: bold;
+  background-color: #2980b9; /* 当前页使用不同的背景颜色以确保更明显的高亮效果 */
+}
+
+/* 非当前页的按钮透明度较低 */
+.page-link:not(.current) {
+  opacity: 0.3;
+}
+
 .katex {
   white-space: normal !important;
 }
@@ -699,6 +732,9 @@ blockquote {
   margin: 15px 0;
   overflow: auto;
   padding: 0 15px;
+}
+.artquote {
+  text-align: center;
 }
 body {
   background: #f6f8fa;
