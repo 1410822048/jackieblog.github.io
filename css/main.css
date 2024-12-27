@@ -733,9 +733,21 @@ blockquote {
   overflow: auto;
   padding: 0 15px;
 }
+/* 自訂義 */
 .artquote {
   text-align: center;
 }
+img.game {
+  max-width: 85%;
+}
+strong.ctitle {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.dfont {
+  font-size: 1rem;
+}
+/*  */
 body {
   background: #f6f8fa;
   color: #1e3e3f;
@@ -820,6 +832,15 @@ img.aboutimg {
   margin-top: 6rem;
   padding: 10px; /* 添加内边距 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+img.aboutgif {
+  display: block;
+  margin: 20px auto; /* 居中对齐 */
+  width: 200px; /* 设置图片宽度 */
+  height: 200px; /* 设置图片高度 */
+  object-fit: cover; /* 图片裁剪适应容器 */
+  margin-top: 6rem;
+  padding: 10px; /* 添加内边距 */
 }
 pre,
 code,
