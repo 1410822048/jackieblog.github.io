@@ -13,11 +13,13 @@ const app = Vue.createApp({
   created() {
     window.addEventListener("load", () => {
       this.loading = false;
+      this.scrollToTop(); // 確保組件掛載後滾動到最上方
     });
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll, true);
     this.render();
+    this.scrollToTop(); // 確保組件掛載後滾動到最上方
   },
   methods: {
     render() {
@@ -37,6 +39,9 @@ const app = Vue.createApp({
         else wrap.style.top = "-80px";
       }
       this.scrollTop = newScrollTop;
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // 使用平滑滾動
     },
   },
 });
