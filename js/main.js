@@ -13,13 +13,11 @@ const app = Vue.createApp({
   created() {
     window.addEventListener("load", () => {
       this.loading = false;
-      window.scrollTo(0, 0);
     });
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll, true);
     this.render();
-    window.scrollTo(0, 0);
   },
   methods: {
     render() {
