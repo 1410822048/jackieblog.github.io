@@ -11,32 +11,67 @@ const app = Vue.createApp({
     };
   },
   created() {
-    window.addEventListener("load", () => {
-      this.loading = false;
-    });
+    window.addEventListener("load", this.onPageLoad);
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll, true);
+    window.addEventListener(
+      "scroll",
+      this.throttle(this.handleScroll, 100),
+      true
+    );
     this.render();
+    this.scrollToTop(); // 確保頁面加載後滾動到頂部
   },
   methods: {
-    render() {
-      for (let i of this.renderers) i();
+    // 頁面加載完成後執行
+    onPageLoad() {
+      this.loading = false;
     },
+
+    // 渲染邏輯
+    render() {
+      this.renderers.forEach((renderer) => renderer());
+    },
+
+    // 滾動事件處理
     handleScroll() {
-      let wrap = this.$refs.homePostsWrap;
-      let newScrollTop = document.documentElement.scrollTop;
-      if (this.scrollTop < newScrollTop) {
-        this.hiddenMenu = true;
-        this.showMenuItems = false;
-      } else this.hiddenMenu = false;
-      if (wrap) {
-        if (newScrollTop <= window.innerHeight - 100) this.menuColor = true;
-        else this.menuColor = false;
-        if (newScrollTop <= 400) wrap.style.top = "-" + newScrollTop / 5 + "px";
-        else wrap.style.top = "-80px";
-      }
+      const newScrollTop = document.documentElement.scrollTop;
+      this.updateMenuVisibility(newScrollTop);
+      this.updateWrapPosition(newScrollTop);
       this.scrollTop = newScrollTop;
+    },
+
+    // 更新選單可見性
+    updateMenuVisibility(newScrollTop) {
+      this.hiddenMenu = this.scrollTop < newScrollTop;
+      this.showMenuItems = !this.hiddenMenu;
+    },
+
+    // 更新 wrap 元素的位置
+    updateWrapPosition(newScrollTop) {
+      const wrap = this.$refs.homePostsWrap;
+      if (wrap) {
+        this.menuColor = newScrollTop <= window.innerHeight - 100;
+        wrap.style.top =
+          newScrollTop <= 400 ? `-${newScrollTop / 5}px` : "-80px";
+      }
+    },
+
+    // 滾動到頂部
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+
+    // 節流函數
+    throttle(func, delay) {
+      let lastCall = 0;
+      return function (...args) {
+        const now = new Date().getTime();
+        if (now - lastCall >= delay) {
+          func.apply(this, args);
+          lastCall = now;
+        }
+      };
     },
   },
 });
