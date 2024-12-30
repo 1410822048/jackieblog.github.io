@@ -19,6 +19,7 @@ const app = Vue.createApp({
   mounted() {
     window.addEventListener("scroll", this.handleScroll, true);
     this.render();
+    window.scrollTo(0, 0);
   },
   methods: {
     render() {
