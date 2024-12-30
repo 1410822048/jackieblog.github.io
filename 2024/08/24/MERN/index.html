@@ -14,7 +14,6 @@
     <link rel="icon" href="/images/avatar.webp" />
     <link rel="preconnect" href="https://s4.zstatic.net" />
 <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
-<!-- <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" /> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.cn" />
 <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
@@ -28,6 +27,7 @@
 
 
 <script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
 <script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <link
     rel="stylesheet"
@@ -184,7 +184,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/MERN/" style="color: #ffa2c4">
+                <a href="/tags/MERN/" style="color: #00bcd4">
                     MERN
                 </a>
             </span>
@@ -205,7 +205,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/React/" style="color: #00a596">
+                <a href="/tags/React/" style="color: #ffa2c4">
                     React
                 </a>
             </span>
@@ -242,19 +242,18 @@
 <h2 id="mern-專案架構概覽"><a class="markdownIt-Anchor" href="#mern-專案架構概覽"></a> MERN 專案架構概覽</h2>
 <p>一個典型的 MERN 專案會包含以下結構：</p>
 <pre class="highlight"><code class="text">my-mern-project/
-├── backend/                 # 後端程式碼
-│   ├── models/              # MongoDB 資料模型
-│   ├── routes/              # Express 路由和 API
-│   └── server.js            # Node.js 伺服器入口
-├── frontend/                # 前端程式碼
-│   ├── src/
-│   │   ├── components/      # React 組件
-│   │   ├── pages/           # 應用程式頁面
-│   │   └── App.js           # React 應用入口
-├── .env                     # 環境變數配置
-├── package.json             # 依賴與腳本設定
-└── README.md                # 專案說明文件
-
+├── backend/ # 後端程式碼
+│ ├── models/ # MongoDB 資料模型
+│ ├── routes/ # Express 路由和 API
+│ └── server.js # Node.js 伺服器入口
+├── frontend/ # 前端程式碼
+│ ├── src/
+│ │ ├── components/ # React 組件
+│ │ ├── pages/ # 應用程式頁面
+│ │ └── App.js # React 應用入口
+├── .env # 環境變數配置
+├── package.json # 依賴與腳本設定
+└── README.md # 專案說明文件
 </code></pre>
 <h2 id="專案步驟與核心功能"><a class="markdownIt-Anchor" href="#專案步驟與核心功能"></a> 專案步驟與核心功能</h2>
 <h3 id="1-打開-vs-code-先在終端運行以下指令如未特別設置全都默認即可"><a class="markdownIt-Anchor" href="#1-打開-vs-code-先在終端運行以下指令如未特別設置全都默認即可"></a> 1. 打開 VS Code 先在終端運行以下指令，如未特別設置全都默認即可</h3>
@@ -263,53 +262,53 @@ npm install express dotenv bcrypt mongoose
 </code></pre>
 <h3 id="2-設置-mongodb-資料庫"><a class="markdownIt-Anchor" href="#2-設置-mongodb-資料庫"></a> 2. 設置 MongoDB 資料庫</h3>
 <p>在 MongoDB Atlas 或本地端設置資料庫，並連結到專案：</p>
-<pre class="highlight"><code class="js"><span class="hljs-keyword">const</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;mongoose&quot;</span>);
-<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MONGO_URI</span> = process.<span class="hljs-property">env</span>.<span class="hljs-property">MONGO_URI</span>;
-<span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;dotenv&quot;</span>).<span class="hljs-title function_">config</span>();
+<pre class="highlight"><code class="js">const mongoose = require(&quot;mongoose&quot;);
+const MONGO_URI = process.env.MONGO_URI;
+require(&quot;dotenv&quot;).config();
 
 mongoose
-  .<span class="hljs-title function_">connect</span>(process.<span class="hljs-property">env</span>.<span class="hljs-property">MONGO_URI</span>)
-  .<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;MongoDB 連線成功&quot;</span>))
-  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;MongoDB 連線失敗:&quot;</span>, err));
+  .connect(process.env.MONGO_URI)
+  .then(() =&gt; console.log(&quot;MongoDB 連線成功&quot;))
+  .catch((err) =&gt; console.error(&quot;MongoDB 連線失敗:&quot;, err));
 </code></pre>
 <h3 id="3-建立-user-及-其他資料的相關-model"><a class="markdownIt-Anchor" href="#3-建立-user-及-其他資料的相關-model"></a> 3. 建立 User 及 其他資料的相關 Model</h3>
 <p>基礎的 Schema 條件建置：</p>
-<pre class="highlight"><code class="js"><span class="hljs-keyword">const</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;mongoose&quot;</span>);
-<span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">Schema</span> &#125; = mongoose;
+<pre class="highlight"><code class="js">const mongoose = require(&quot;mongoose&quot;);
+const &#123; Schema &#125; = mongoose;
 
-<span class="hljs-keyword">const</span> userSchema = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Schema</span>(&#123;
-  <span class="hljs-attr">username</span>: &#123;
-    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
-    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">minlength</span>: [<span class="hljs-number">3</span>, <span class="hljs-string">&quot;請至少輸入三個字元&quot;</span>],
-    <span class="hljs-attr">maxlength</span>: [<span class="hljs-number">12</span>, <span class="hljs-string">&quot;超出字數限制!!&quot;</span>],
+const userSchema = new Schema(&#123;
+  username: &#123;
+    type: String,
+    required: true,
+    minlength: [3, &quot;請至少輸入三個字元&quot;],
+    maxlength: [12, &quot;超出字數限制!!&quot;],
   &#125;,
-  <span class="hljs-attr">email</span>: &#123;
-    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
-    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">minlength</span>: [<span class="hljs-number">5</span>, <span class="hljs-string">&quot;請至少輸入五個字元&quot;</span>],
-    <span class="hljs-attr">maxlength</span>: [<span class="hljs-number">25</span>, <span class="hljs-string">&quot;超出字元限制!!&quot;</span>],
+  email: &#123;
+    type: String,
+    required: true,
+    minlength: [5, &quot;請至少輸入五個字元&quot;],
+    maxlength: [25, &quot;超出字元限制!!&quot;],
   &#125;,
-  <span class="hljs-attr">password</span>: &#123;
-    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
-    <span class="hljs-attr">minlength</span>: [<span class="hljs-number">8</span>, <span class="hljs-string">&quot;Password must be at least 8 characters&quot;</span>],
-    <span class="hljs-attr">maxlengeh</span>: [<span class="hljs-number">15</span>, <span class="hljs-string">&quot;Password must be less than 15 characters&quot;</span>],
-    <span class="hljs-attr">validate</span>: &#123;
-      <span class="hljs-attr">validator</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">v</span>) &#123;
-        <span class="hljs-comment">// 檢查是否包含至少一個字母和一個數字，但後續會透過&#x27;JOI&#x27;這個插件實現 這邊只是用於記憶</span>
-        <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^(?=.*[A-Za-z])(?=.*\d)/</span>.<span class="hljs-title function_">test</span>(v);
+  password: &#123;
+    type: String,
+    minlength: [8, &quot;Password must be at least 8 characters&quot;],
+    maxlengeh: [15, &quot;Password must be less than 15 characters&quot;],
+    validate: &#123;
+      validator: function (v) &#123;
+        // 檢查是否包含至少一個字母和一個數字，但後續會透過'JOI'這個插件實現 這邊只是用於記憶
+        return /^(?=.*[A-Za-z])(?=.*\d)/.test(v);
       &#125;,
-      <span class="hljs-attr">message</span>: <span class="hljs-string">&quot;Password must contain at least one letter and one number&quot;</span>,
+      message: &quot;Password must contain at least one letter and one number&quot;,
     &#125;,
   &#125;,
-  <span class="hljs-attr">role</span>: &#123;
-    <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span>,
-    <span class="hljs-attr">required</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">enum</span>: [<span class="hljs-string">&quot;Student&quot;</span>, <span class="hljs-string">&quot;Instructor&quot;</span>],
+  role: &#123;
+    type: String,
+    required: true,
+    enum: [&quot;Student&quot;, &quot;Instructor&quot;],
   &#125;,
-  <span class="hljs-attr">date</span>: &#123;
-    <span class="hljs-attr">type</span>: <span class="hljs-title class_">Date</span>,
-    <span class="hljs-attr">default</span>: <span class="hljs-title class_">Date</span>.<span class="hljs-property">now</span>,
+  date: &#123;
+    type: Date,
+    default: Date.now,
   &#125;,
 &#125;);
 </code></pre>
@@ -317,249 +316,249 @@ mongoose
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/bcrypt">bcrypt</a></li>
 </ul>
-<pre class="highlight"><code class="js"><span class="hljs-keyword">const</span> bcrypt = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;bcrypt&quot;</span>);
-<span class="hljs-keyword">const</span> saltRounds = <span class="hljs-number">14</span>; <span class="hljs-comment">//加密複雜度 建議在10-14間 step = 2</span>
+<pre class="highlight"><code class="js">const bcrypt = require(&quot;bcrypt&quot;);
+const saltRounds = 14; //加密複雜度 建議在10-14間 step = 2
 
-userSchema.<span class="hljs-property">methods</span>.<span class="hljs-property">isStudent</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
-  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">role</span> == <span class="hljs-string">&quot;Student&quot;</span>; <span class="hljs-comment">//無法用 arrow fc 會抓不到 this</span>
+userSchema.methods.isStudent = function () &#123;
+  return this.role == &quot;Student&quot;; //無法用 arrow fc 會抓不到 this
 &#125;;
 
-userSchema.<span class="hljs-property">methods</span>.<span class="hljs-property">isInstructor</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
-  <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-property">role</span> == <span class="hljs-string">&quot;Instructor&quot;</span>;
+userSchema.methods.isInstructor = function () &#123;
+  return this.role == &quot;Instructor&quot;;
 &#125;;
 
-userSchema.<span class="hljs-property">methods</span>.<span class="hljs-property">comparePassword</span> = <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">password, cb</span>) &#123;
-  <span class="hljs-keyword">let</span> result;
-  <span class="hljs-keyword">try</span> &#123;
-    result = <span class="hljs-keyword">await</span> bcrypt.<span class="hljs-title function_">compare</span>(password, <span class="hljs-variable language_">this</span>.<span class="hljs-property">password</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-title function_">cb</span>(<span class="hljs-literal">null</span>, result);
-  &#125; <span class="hljs-keyword">catch</span> (e) &#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-title function_">cb</span>(e, result);
+userSchema.methods.comparePassword = async function (password, cb) &#123;
+  let result;
+  try &#123;
+    result = await bcrypt.compare(password, this.password);
+    return cb(null, result);
+  &#125; catch (e) &#123;
+    return cb(e, result);
   &#125;
 &#125;;
 
-userSchema.<span class="hljs-title function_">pre</span>(<span class="hljs-string">&quot;save&quot;</span>, <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">next</span>) &#123;
-  <span class="hljs-comment">//表示在 save 前觸發此 fc</span>
-  <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">this</span>.<span class="hljs-property">isNew</span> || <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">isModified</span>(<span class="hljs-string">&quot;password&quot;</span>)) &#123;
-    <span class="hljs-comment">//isNew 確認是否為新文檔 || isModified 確認是否經修改過 兩者為 mongoose 內建函數</span>
-    <span class="hljs-keyword">const</span> hashedPass = <span class="hljs-keyword">await</span> bcrypt.<span class="hljs-title function_">hash</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">password</span>, saltRounds);
-    <span class="hljs-variable language_">this</span>.<span class="hljs-property">password</span> = hashedPass;
+userSchema.pre(&quot;save&quot;, async function (next) &#123;
+  //表示在 save 前觸發此 fc
+  if (this.isNew || this.isModified(&quot;password&quot;)) &#123;
+    //isNew 確認是否為新文檔 || isModified 確認是否經修改過 兩者為 mongoose 內建函數
+    const hashedPass = await bcrypt.hash(this.password, saltRounds);
+    this.password = hashedPass;
   &#125;
-  <span class="hljs-title function_">next</span>();
-  <span class="hljs-comment">//把主動權交給下一個 middleware</span>
+  next();
+  //把主動權交給下一個 middleware
 &#125;);
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = mongoose.<span class="hljs-title function_">model</span>(<span class="hljs-string">&quot;User&quot;</span>, userSchema);
+module.exports = mongoose.model(&quot;User&quot;, userSchema);
 </code></pre>
 <h3 id="4-透過-joi-建立各項驗證"><a class="markdownIt-Anchor" href="#4-透過-joi-建立各項驗證"></a> 4. 透過 JOI 建立各項驗證</h3>
 <p>用於驗證用戶經過 Routes 的數據是否符合要求 ：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/joi">Joi</a></li>
 </ul>
-<pre class="highlight"><code class="js"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Joi</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;joi&quot;</span>);
+<pre class="highlight"><code class="js">const Joi = require(&quot;joi&quot;);
 
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">registorValidation</span> = (<span class="hljs-params">data</span>) =&gt; &#123;
-  <span class="hljs-keyword">const</span> schema = <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">object</span>(&#123;
-    <span class="hljs-attr">username</span>: <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">min</span>(<span class="hljs-number">3</span>).<span class="hljs-title function_">max</span>(<span class="hljs-number">12</span>).<span class="hljs-title function_">required</span>().<span class="hljs-title function_">messages</span>(&#123;
-      <span class="hljs-string">&quot;string.min&quot;</span>: <span class="hljs-string">&quot;用戶名稱長度至少 3 個字元。&quot;</span>,
-      <span class="hljs-string">&quot;string.max&quot;</span>: <span class="hljs-string">&quot;用戶名稱長度不能超過 12 個字元。&quot;</span>,
-      <span class="hljs-string">&quot;string.empty&quot;</span>: <span class="hljs-string">&quot;用戶名稱不能為空。&quot;</span>,
-      <span class="hljs-string">&quot;any.required&quot;</span>: <span class="hljs-string">&quot;用戶名稱為必填項。&quot;</span>,
+const registorValidation = (data) =&gt; &#123;
+  const schema = Joi.object(&#123;
+    username: Joi.string().min(3).max(12).required().messages(&#123;
+      &quot;string.min&quot;: &quot;用戶名稱長度至少 3 個字元。&quot;,
+      &quot;string.max&quot;: &quot;用戶名稱長度不能超過 12 個字元。&quot;,
+      &quot;string.empty&quot;: &quot;用戶名稱不能為空。&quot;,
+      &quot;any.required&quot;: &quot;用戶名稱為必填項。&quot;,
     &#125;),
-    <span class="hljs-attr">email</span>: <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">min</span>(<span class="hljs-number">5</span>).<span class="hljs-title function_">max</span>(<span class="hljs-number">25</span>).<span class="hljs-title function_">required</span>().<span class="hljs-title function_">email</span>().<span class="hljs-title function_">messages</span>(&#123;
-      <span class="hljs-string">&quot;string.min&quot;</span>: <span class="hljs-string">&quot;電子信箱至少 3 個字元。&quot;</span>,
-      <span class="hljs-string">&quot;string.max&quot;</span>: <span class="hljs-string">&quot;電子信箱不能超過 12 個字元。&quot;</span>,
-      <span class="hljs-string">&quot;string.email&quot;</span>: <span class="hljs-string">&quot;請輸入有效的電子郵件地址。&quot;</span>,
-      <span class="hljs-string">&quot;string.empty&quot;</span>: <span class="hljs-string">&quot;電子信箱不能為空。&quot;</span>,
-      <span class="hljs-string">&quot;any.required&quot;</span>: <span class="hljs-string">&quot;電子信箱為必填項&quot;</span>,
+    email: Joi.string().min(5).max(25).required().email().messages(&#123;
+      &quot;string.min&quot;: &quot;電子信箱至少 3 個字元。&quot;,
+      &quot;string.max&quot;: &quot;電子信箱不能超過 12 個字元。&quot;,
+      &quot;string.email&quot;: &quot;請輸入有效的電子郵件地址。&quot;,
+      &quot;string.empty&quot;: &quot;電子信箱不能為空。&quot;,
+      &quot;any.required&quot;: &quot;電子信箱為必填項&quot;,
     &#125;),
-    <span class="hljs-attr">password</span>: <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">string</span>()
-      .<span class="hljs-title function_">min</span>(<span class="hljs-number">8</span>)
-      .<span class="hljs-title function_">max</span>(<span class="hljs-number">15</span>)
-      .<span class="hljs-title function_">required</span>()
-      .<span class="hljs-title function_">pattern</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&quot;^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]&#123;8,15&#125;$&quot;</span>))
-      .<span class="hljs-title function_">messages</span>(&#123;
-        <span class="hljs-string">&quot;string.min&quot;</span>: <span class="hljs-string">&quot;密碼至少 8個字元。&quot;</span>,
-        <span class="hljs-string">&quot;string.max&quot;</span>: <span class="hljs-string">&quot;密碼不能超過 15 個字元。&quot;</span>,
-        <span class="hljs-string">&quot;string.pattern.base&quot;</span>:
-          <span class="hljs-string">&quot;密碼必须至少包含一個字母和一個數字，且長度在 8 到 15 個字元之間。&quot;</span>,
-        <span class="hljs-string">&quot;string.empty&quot;</span>: <span class="hljs-string">&quot;密碼不能為空。&quot;</span>,
-        <span class="hljs-string">&quot;any.required&quot;</span>: <span class="hljs-string">&quot;密碼是必填項。&quot;</span>,
+    password: Joi.string()
+      .min(8)
+      .max(15)
+      .required()
+      .pattern(new RegExp(&quot;^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]&#123;8,15&#125;$&quot;))
+      .messages(&#123;
+        &quot;string.min&quot;: &quot;密碼至少 8個字元。&quot;,
+        &quot;string.max&quot;: &quot;密碼不能超過 15 個字元。&quot;,
+        &quot;string.pattern.base&quot;:
+          &quot;密碼必须至少包含一個字母和一個數字，且長度在 8 到 15 個字元之間。&quot;,
+        &quot;string.empty&quot;: &quot;密碼不能為空。&quot;,
+        &quot;any.required&quot;: &quot;密碼是必填項。&quot;,
       &#125;),
-    <span class="hljs-attr">role</span>: <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">string</span>()
-      .<span class="hljs-title function_">valid</span>(<span class="hljs-string">&quot;Student&quot;</span>, <span class="hljs-string">&quot;Instructor&quot;</span>) <span class="hljs-comment">// 限制為 &quot;Student&quot; 或 &quot;Instructor&quot;</span>
-      .<span class="hljs-title function_">required</span>()
-      .<span class="hljs-title function_">messages</span>(&#123;
-        <span class="hljs-string">&quot;string.empty&quot;</span>: <span class="hljs-string">&quot;身份不能為空。&quot;</span>,
-        <span class="hljs-string">&quot;any.required&quot;</span>: <span class="hljs-string">&quot;身份是必填的。&quot;</span>,
-        <span class="hljs-string">&quot;any.invalid&quot;</span>: <span class="hljs-string">&quot;身份必須是 Student 或 Instructor。&quot;</span>,
-        <span class="hljs-string">&quot;any.only&quot;</span>: <span class="hljs-string">&quot;身份必須是 Student 或 Instructor。&quot;</span>,
+    role: Joi.string()
+      .valid(&quot;Student&quot;, &quot;Instructor&quot;) // 限制為 &quot;Student&quot; 或 &quot;Instructor&quot;
+      .required()
+      .messages(&#123;
+        &quot;string.empty&quot;: &quot;身份不能為空。&quot;,
+        &quot;any.required&quot;: &quot;身份是必填的。&quot;,
+        &quot;any.invalid&quot;: &quot;身份必須是 Student 或 Instructor。&quot;,
+        &quot;any.only&quot;: &quot;身份必須是 Student 或 Instructor。&quot;,
       &#125;),
   &#125;);
-  <span class="hljs-keyword">return</span> schema.<span class="hljs-title function_">validate</span>(data);
+  return schema.validate(data);
 &#125;;
 
-<span class="hljs-keyword">const</span> <span class="hljs-title function_">loginValidation</span> = (<span class="hljs-params">data</span>) =&gt; &#123;
-  <span class="hljs-keyword">const</span> schema = <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">object</span>(&#123;
-    <span class="hljs-attr">email</span>: <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">required</span>().<span class="hljs-title function_">email</span>().<span class="hljs-title function_">messages</span>(&#123;
-      <span class="hljs-string">&quot;string.email&quot;</span>: <span class="hljs-string">&quot;🚫此信箱尚未註册。&quot;</span>,
-      <span class="hljs-string">&quot;string.empty&quot;</span>: <span class="hljs-string">&quot;🚫電子信箱不能為空。&quot;</span>,
-      <span class="hljs-string">&quot;any.required&quot;</span>: <span class="hljs-string">&quot;電子信箱為必填項。&quot;</span>,
+const loginValidation = (data) =&gt; &#123;
+  const schema = Joi.object(&#123;
+    email: Joi.string().required().email().messages(&#123;
+      &quot;string.email&quot;: &quot;🚫此信箱尚未註册。&quot;,
+      &quot;string.empty&quot;: &quot;🚫電子信箱不能為空。&quot;,
+      &quot;any.required&quot;: &quot;電子信箱為必填項。&quot;,
     &#125;),
-    <span class="hljs-attr">password</span>: <span class="hljs-title class_">Joi</span>.<span class="hljs-title function_">string</span>().<span class="hljs-title function_">required</span>().<span class="hljs-title function_">messages</span>(&#123;
-      <span class="hljs-string">&quot;string.pattern.base&quot;</span>: <span class="hljs-string">&quot;🚫邮箱或密码错误，请重新输入。&quot;</span>,
-      <span class="hljs-string">&quot;string.empty&quot;</span>: <span class="hljs-string">&quot;🚫密碼不能為空。&quot;</span>,
-      <span class="hljs-string">&quot;any.required&quot;</span>: <span class="hljs-string">&quot;密碼是必填項。&quot;</span>,
+    password: Joi.string().required().messages(&#123;
+      &quot;string.pattern.base&quot;: &quot;🚫邮箱或密码错误，请重新输入。&quot;,
+      &quot;string.empty&quot;: &quot;🚫密碼不能為空。&quot;,
+      &quot;any.required&quot;: &quot;密碼是必填項。&quot;,
     &#125;),
   &#125;);
-  <span class="hljs-keyword">return</span> schema.<span class="hljs-title function_">validate</span>(data);
+  return schema.validate(data);
 &#125;;
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>.<span class="hljs-property">registorValidation</span> = registorValidation;
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span>.<span class="hljs-property">loginValidation</span> = loginValidation;
+module.exports.registorValidation = registorValidation;
+module.exports.loginValidation = loginValidation;
 </code></pre>
 <h3 id="5-建立-jwt-驗證的-middleware"><a class="markdownIt-Anchor" href="#5-建立-jwt-驗證的-middleware"></a> 5. 建立 JWT 驗證的 middleware</h3>
 <p>透過 JWT 來驗證身份等相關資訊：</p>
 <pre class="highlight"><code class="bash">npm install jsonwebtoken
 </code></pre>
-<pre class="highlight"><code class="js"><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">JWT</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;jsonwebtoken&quot;</span>); <span class="hljs-comment">//JWT 驗證</span>
-<span class="hljs-comment">//驗證 token</span>
-<span class="hljs-keyword">function</span> <span class="hljs-title function_">authenticateToken</span>(<span class="hljs-params">req, res, next</span>) &#123;
-  <span class="hljs-keyword">const</span> token = req.<span class="hljs-title function_">header</span>(<span class="hljs-string">&quot;Authorization&quot;</span>); <span class="hljs-comment">// 從 Authorization 標頭中取出 token</span>
+<pre class="highlight"><code class="js">const JWT = require(&quot;jsonwebtoken&quot;); //JWT 驗證
+//驗證 token
+function authenticateToken(req, res, next) &#123;
+  const token = req.header(&quot;Authorization&quot;); // 從 Authorization 標頭中取出 token
 
-  <span class="hljs-keyword">if</span> (!token) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">401</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;沒有提供 token&quot;</span>);
+  if (!token) &#123;
+    return res.status(401).send(&quot;沒有提供 token&quot;);
   &#125;
 
-  <span class="hljs-keyword">const</span> jwtToken = token.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&quot;JWT &quot;</span>, <span class="hljs-string">&quot;&quot;</span>);
+  const jwtToken = token.replace(&quot;JWT &quot;, &quot;&quot;);
 
-  <span class="hljs-variable constant_">JWT</span>.<span class="hljs-title function_">verify</span>(jwtToken, process.<span class="hljs-property">env</span>.<span class="hljs-property">PASSPORT_SECRET</span>, <span class="hljs-function">(<span class="hljs-params">err, user</span>) =&gt;</span> &#123;
-    <span class="hljs-keyword">if</span> (err) &#123;
-      <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">403</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;無效的 token&quot;</span>);
+  JWT.verify(jwtToken, process.env.PASSPORT_SECRET, (err, user) =&gt; &#123;
+    if (err) &#123;
+      return res.status(403).send(&quot;無效的 token&quot;);
     &#125;
-    req.<span class="hljs-property">user</span> = user; <span class="hljs-comment">// 保存解析後的用戶信息</span>
-    <span class="hljs-title function_">next</span>(); <span class="hljs-comment">// 通過驗證，繼續執行後續的路由</span>
+    req.user = user; // 保存解析後的用戶信息
+    next(); // 通過驗證，繼續執行後續的路由
   &#125;);
 &#125;
 </code></pre>
 <h3 id="6-建立-express-後端-api"><a class="markdownIt-Anchor" href="#6-建立-express-後端-api"></a> 6. 建立 Express 後端 API</h3>
 <p>設計 RESTful API，例如用於管理用戶的 CRUD 功能：</p>
-<pre class="highlight"><code class="js"><span class="hljs-keyword">const</span> router = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>).<span class="hljs-title class_">Router</span>();
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">User</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;../model&quot;</span>).<span class="hljs-property">user</span>;
-<span class="hljs-keyword">const</span> bcrypt = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;bcrypt&quot;</span>); <span class="hljs-comment">//用於加密用戶訊息 ex.password</span>
+<pre class="highlight"><code class="js">const router = require(&quot;express&quot;).Router();
+const User = require(&quot;../model&quot;).user;
+const bcrypt = require(&quot;bcrypt&quot;); //用於加密用戶訊息 ex.password
 
-<span class="hljs-keyword">const</span> registerValidation = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;../validation&quot;</span>).<span class="hljs-property">registorValidation</span>;
-<span class="hljs-keyword">const</span> loginValidation = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;../validation&quot;</span>).<span class="hljs-property">loginValidation</span>;
-<span class="hljs-keyword">const</span> editorValidation = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;../validation&quot;</span>).<span class="hljs-property">editorValidation</span>;
+const registerValidation = require(&quot;../validation&quot;).registorValidation;
+const loginValidation = require(&quot;../validation&quot;).loginValidation;
+const editorValidation = require(&quot;../validation&quot;).editorValidation;
 
-<span class="hljs-comment">// 建立使用者</span>
-router.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/register&quot;</span>, <span class="hljs-title function_">async</span> (req, res) =&gt; &#123;
-  <span class="hljs-keyword">let</span> &#123; username, email, password, role &#125; = req.<span class="hljs-property">body</span>;
-  <span class="hljs-keyword">let</span> &#123; error &#125; = <span class="hljs-title function_">registerValidation</span>(req.<span class="hljs-property">body</span>); <span class="hljs-comment">//確認數據是否符合規定</span>
-  <span class="hljs-keyword">if</span> (error) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">send</span>(error.<span class="hljs-property">details</span>[<span class="hljs-number">0</span>].<span class="hljs-property">message</span>);
+// 建立使用者
+router.post(&quot;/register&quot;, async (req, res) =&gt; &#123;
+  let &#123; username, email, password, role &#125; = req.body;
+  let &#123; error &#125; = registerValidation(req.body); //確認數據是否符合規定
+  if (error) &#123;
+    return res.status(400).send(error.details[0].message);
   &#125;
-  <span class="hljs-keyword">const</span> emailExist = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findOne</span>(&#123; email &#125;).<span class="hljs-title function_">exec</span>();
-  <span class="hljs-keyword">if</span> (emailExist) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;該信箱已被註册，請更换別的信箱。&quot;</span>);
+  const emailExist = await User.findOne(&#123; email &#125;).exec();
+  if (emailExist) &#123;
+    return res.status(400).send(&quot;該信箱已被註册，請更换別的信箱。&quot;);
   &#125;
-  <span class="hljs-keyword">try</span> &#123;
-    <span class="hljs-keyword">let</span> newUser = <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>(&#123; username, email, password, role &#125;);
-    <span class="hljs-keyword">await</span> newUser.<span class="hljs-title function_">save</span>();
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">send</span>(&#123;
-      <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;使用者成功儲存&quot;</span>,
-      <span class="hljs-attr">user</span>: &#123;
-        <span class="hljs-attr">id</span>: newUser.<span class="hljs-property">_id</span>,
-        <span class="hljs-attr">username</span>: newUser.<span class="hljs-property">username</span>,
-        <span class="hljs-attr">email</span>: newUser.<span class="hljs-property">email</span>,
-        <span class="hljs-attr">password</span>: newUser.<span class="hljs-property">password</span>,
-        <span class="hljs-attr">role</span>: newUser.<span class="hljs-property">role</span>,
+  try &#123;
+    let newUser = new User(&#123; username, email, password, role &#125;);
+    await newUser.save();
+    return res.send(&#123;
+      msg: &quot;使用者成功儲存&quot;,
+      user: &#123;
+        id: newUser._id,
+        username: newUser.username,
+        email: newUser.email,
+        password: newUser.password,
+        role: newUser.role,
       &#125;,
     &#125;);
-  &#125; <span class="hljs-keyword">catch</span> (e) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;無法儲存使用者&quot;</span>);
+  &#125; catch (e) &#123;
+    return res.status(500).send(&quot;無法儲存使用者&quot;);
   &#125;
 &#125;);
 
-<span class="hljs-comment">//用戶登入</span>
-router.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/login&quot;</span>, <span class="hljs-title function_">async</span> (req, res) =&gt; &#123;
-  <span class="hljs-keyword">let</span> &#123; email, password &#125; = req.<span class="hljs-property">body</span>;
-  <span class="hljs-keyword">let</span> &#123; error &#125; = <span class="hljs-title function_">loginValidation</span>(req.<span class="hljs-property">body</span>);
-  <span class="hljs-keyword">if</span> (error) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">send</span>(error.<span class="hljs-property">details</span>[<span class="hljs-number">0</span>].<span class="hljs-property">message</span>);
+//用戶登入
+router.post(&quot;/login&quot;, async (req, res) =&gt; &#123;
+  let &#123; email, password &#125; = req.body;
+  let &#123; error &#125; = loginValidation(req.body);
+  if (error) &#123;
+    return res.status(400).send(error.details[0].message);
   &#125;
-  <span class="hljs-keyword">const</span> <span class="hljs-title class_">FUser</span> = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findOne</span>(&#123; email &#125;).<span class="hljs-title function_">exec</span>();
-  <span class="hljs-keyword">if</span> (!<span class="hljs-title class_">FUser</span>) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;找不到此用戶，請確認信箱是否正確。&quot;</span>);
+  const FUser = await User.findOne(&#123; email &#125;).exec();
+  if (!FUser) &#123;
+    return res.status(400).send(&quot;找不到此用戶，請確認信箱是否正確。&quot;);
   &#125;
-  <span class="hljs-title class_">FUser</span>.<span class="hljs-title function_">comparePassword</span>(password, <span class="hljs-function">(<span class="hljs-params">err, isMatch</span>) =&gt;</span> &#123;
-    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">send</span>(err);
-    <span class="hljs-keyword">if</span> (isMatch) &#123;
-      <span class="hljs-keyword">const</span> tokenObj = &#123; <span class="hljs-attr">_id</span>: <span class="hljs-title class_">FUser</span>.<span class="hljs-property">_id</span>, <span class="hljs-attr">email</span>: <span class="hljs-title class_">FUser</span>.<span class="hljs-property">email</span> &#125;;
-      <span class="hljs-keyword">const</span> token = <span class="hljs-variable constant_">JWT</span>.<span class="hljs-title function_">sign</span>(tokenObj, process.<span class="hljs-property">env</span>.<span class="hljs-property">PASSPORT_SECRET</span>);
-      <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">send</span>(&#123;
-        <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;成功登入&quot;</span>,
-        <span class="hljs-attr">token</span>: <span class="hljs-string">&quot;JWT &quot;</span> + token,
-        <span class="hljs-attr">user</span>: <span class="hljs-title class_">FUser</span>,
+  FUser.comparePassword(password, (err, isMatch) =&gt; &#123;
+    if (err) return res.status(500).send(err);
+    if (isMatch) &#123;
+      const tokenObj = &#123; _id: FUser._id, email: FUser.email &#125;;
+      const token = JWT.sign(tokenObj, process.env.PASSPORT_SECRET);
+      return res.send(&#123;
+        msg: &quot;成功登入&quot;,
+        token: &quot;JWT &quot; + token,
+        user: FUser,
       &#125;);
-    &#125; <span class="hljs-keyword">else</span> &#123;
-      <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">401</span>).<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;密碼錯誤&quot;</span>);
+    &#125; else &#123;
+      return res.status(401).send(&quot;密碼錯誤&quot;);
     &#125;
   &#125;);
 &#125;);
 
-<span class="hljs-comment">//用戶資料修改</span>
-router.<span class="hljs-title function_">patch</span>(<span class="hljs-string">&quot;/:_id&quot;</span>, authenticateToken, <span class="hljs-title function_">async</span> (req, res) =&gt; &#123;
-  <span class="hljs-keyword">let</span> &#123; _id &#125; = req.<span class="hljs-property">params</span>;
+//用戶資料修改
+router.patch(&quot;/:_id&quot;, authenticateToken, async (req, res) =&gt; &#123;
+  let &#123; _id &#125; = req.params;
 
-  <span class="hljs-comment">// 驗證請求數據</span>
-  <span class="hljs-keyword">let</span> &#123; error &#125; = <span class="hljs-title function_">editorValidation</span>(req.<span class="hljs-property">body</span>);
-  <span class="hljs-keyword">if</span> (error) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">error</span>: error.<span class="hljs-property">details</span>[<span class="hljs-number">0</span>].<span class="hljs-property">message</span> &#125;); <span class="hljs-comment">// 返回具體錯誤信息</span>
+  // 驗證請求數據
+  let &#123; error &#125; = editorValidation(req.body);
+  if (error) &#123;
+    return res.status(400).send(&#123; error: error.details[0].message &#125;); // 返回具體錯誤信息
   &#125;
 
-  <span class="hljs-keyword">try</span> &#123;
-    <span class="hljs-comment">// 查找用戶</span>
-    <span class="hljs-keyword">let</span> <span class="hljs-title class_">Uf</span> = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findById</span>(_id).<span class="hljs-title function_">exec</span>();
-    <span class="hljs-keyword">if</span> (!<span class="hljs-title class_">Uf</span>) &#123;
-      <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">404</span>).<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;找不到此用戶&quot;</span> &#125;); <span class="hljs-comment">// 用戶未找到</span>
+  try &#123;
+    // 查找用戶
+    let Uf = await User.findById(_id).exec();
+    if (!Uf) &#123;
+      return res.status(404).send(&#123; error: &quot;找不到此用戶&quot; &#125;); // 用戶未找到
     &#125;
 
-    <span class="hljs-comment">// 驗證當前用戶是否與要修改的用戶相同</span>
-    <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Uf</span>.<span class="hljs-property">_id</span>.<span class="hljs-title function_">toString</span>() === req.<span class="hljs-property">user</span>.<span class="hljs-property">_id</span>.<span class="hljs-title function_">toString</span>()) &#123;
-      <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(req.<span class="hljs-property">body</span>).<span class="hljs-property">length</span> === <span class="hljs-number">0</span>) &#123;
-        <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">400</span>).<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;沒有提供更新資料&quot;</span> &#125;);
+    // 驗證當前用戶是否與要修改的用戶相同
+    if (Uf._id.toString() === req.user._id.toString()) &#123;
+      if (Object.keys(req.body).length === 0) &#123;
+        return res.status(400).send(&#123; error: &quot;沒有提供更新資料&quot; &#125;);
       &#125;
 
-      <span class="hljs-keyword">let</span> updatedData = req.<span class="hljs-property">body</span>;
+      let updatedData = req.body;
 
-      <span class="hljs-comment">// 如果有提供密碼，則進行加密處理</span>
-      <span class="hljs-keyword">if</span> (updatedData.<span class="hljs-property">password</span>) &#123;
-        <span class="hljs-keyword">const</span> salt = <span class="hljs-keyword">await</span> bcrypt.<span class="hljs-title function_">genSalt</span>(<span class="hljs-number">10</span>); <span class="hljs-comment">// 生成salt</span>
-        updatedData.<span class="hljs-property">password</span> = <span class="hljs-keyword">await</span> bcrypt.<span class="hljs-title function_">hash</span>(updatedData.<span class="hljs-property">password</span>, salt); <span class="hljs-comment">// 使用salt加密密碼</span>
+      // 如果有提供密碼，則進行加密處理
+      if (updatedData.password) &#123;
+        const salt = await bcrypt.genSalt(10); // 生成salt
+        updatedData.password = await bcrypt.hash(updatedData.password, salt); // 使用salt加密密碼
       &#125;
 
-      <span class="hljs-comment">// 更新用戶資料</span>
-      <span class="hljs-keyword">const</span> updatedUser = <span class="hljs-keyword">await</span> <span class="hljs-title class_">User</span>.<span class="hljs-title function_">findByIdAndUpdate</span>(_id, updatedData, &#123;
-        <span class="hljs-attr">new</span>: <span class="hljs-literal">true</span>,
-        <span class="hljs-attr">runValidators</span>: <span class="hljs-literal">true</span>,
+      // 更新用戶資料
+      const updatedUser = await User.findByIdAndUpdate(_id, updatedData, &#123;
+        new: true,
+        runValidators: true,
       &#125;);
-      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(updatedUser);
+      console.log(updatedUser);
 
-      <span class="hljs-keyword">if</span> (!updatedUser) &#123;
-        <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;更新失敗&quot;</span> &#125;);
+      if (!updatedUser) &#123;
+        return res.status(500).send(&#123; error: &quot;更新失敗&quot; &#125;);
       &#125;
 
-      <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">msg</span>: <span class="hljs-string">&quot;資料被更新&quot;</span>, <span class="hljs-attr">user</span>: updatedUser &#125;);
-    &#125; <span class="hljs-keyword">else</span> &#123;
-      <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">403</span>).<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;您無權更改此資料&quot;</span> &#125;); <span class="hljs-comment">// 權限錯誤</span>
+      return res.send(&#123; msg: &quot;資料被更新&quot;, user: updatedUser &#125;);
+    &#125; else &#123;
+      return res.status(403).send(&#123; error: &quot;您無權更改此資料&quot; &#125;); // 權限錯誤
     &#125;
-  &#125; <span class="hljs-keyword">catch</span> (e) &#123;
-    <span class="hljs-keyword">return</span> res.<span class="hljs-title function_">status</span>(<span class="hljs-number">500</span>).<span class="hljs-title function_">send</span>(&#123; <span class="hljs-attr">error</span>: e.<span class="hljs-property">message</span> &#125;); <span class="hljs-comment">// 伺服器錯誤</span>
+  &#125; catch (e) &#123;
+    return res.status(500).send(&#123; error: e.message &#125;); // 伺服器錯誤
   &#125;
 &#125;);
 
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = router;
+module.exports = router;
 </code></pre>
 <div class="pagination">
   <a href="#" class="page-link" data-page-prefix="MERN" data-page="1">1</a>
