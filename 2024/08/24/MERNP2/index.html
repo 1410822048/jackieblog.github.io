@@ -1,293 +1,137 @@
-<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><title>MERN 專案STEP | HenRsの小窩</title><meta name="author" content="HenRs"><meta name="description" content="有關於『我』"><meta name="keywords" content=""><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><link rel="icon" href="/images/avatar.webp"><link rel="preconnect" href="https://s4.zstatic.net"><script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"><link rel="preconnect" href="https://fonts.googleapis.cn"><link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"><script>const mixins={}</script><script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script><script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script><link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"><script src="/js/lib/highlight.js"></script><script src="/js/lib/preview.js"></script><link rel="stylesheet" href="/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="layout"><transition name="fade"><div id="loading" v-show="loading"><div id="loading-circle"><h2>LOADING</h2><p>加載中···請稍後，如過慢請清理緩存</p><img src="/images/loading.gif"></div></div></transition><div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}"><nav id="desktop-menu"><a class="title" href="/"><span>HENRSの小窩</span> </a><a href="/"><i class="fa-solid fa-house fa-fw"></i> <span>&ensp;首頁</span> </a><a href="/about"><i class="fa-solid fa-id-card fa-fw"></i> <span>&ensp;關於</span> </a><a href="/archives"><i class="fa-solid fa-box-archive fa-fw"></i> <span>&ensp;項目</span> </a><a href="/categories"><i class="fa-solid fa-bookmark fa-fw"></i> <span>&ensp;類別</span> </a><a href="/tags"><i class="fa-solid fa-tags fa-fw"></i> <span>&ensp;標籤</span></a></nav><nav id="mobile-menu"><div class="title" @click="showMenuItems = !showMenuItems"><i class="fa-solid fa-bars fa-fw"></i> <span>&emsp;HENRSの小窩</span></div><transition name="slide"><div class="items" v-show="showMenuItems"><a href="/"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-house fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">首頁</div></div></a><a href="/about"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-id-card fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">關於</div></div></a><a href="/archives"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-box-archive fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">項目</div></div></a><a href="/categories"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-bookmark fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">類別</div></div></a><a href="/tags"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-tags fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">標籤</div></div></a></div></transition></nav></div><transition name="fade"><div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div></transition><div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'"><div class="article"><div><h1>MERN 專案STEP</h1></div><div class="info"><span class="date"><span class="icon"><i class="fa-solid fa-calendar fa-fw"></i> </span>2024/8/24</span></div><div class="content" v-pre><h2 id="你好"><a class="markdownIt-Anchor" href="#你好"></a> 你好</h2><p>MERN 代表 <strong>MongoDB, Express, React, Node.js</strong>，是一套強大的全端開發技術棧，讓開發者能夠以 <strong>JavaScript</strong> 打造從後端到前端的完整應用程式。</p><ul><li><strong>MongoDB</strong>: NoSQL 資料庫，適合儲存 JSON 格式的文件型資料。</li><li><strong>Express</strong>: Node.js 上的輕量框架，提供後端 API 和中介軟體功能。</li><li><strong>React</strong>: 用於建構前端用戶界面 (UI) 的 JavaScript 函式庫。</li><li><strong>Node.js</strong>: 提供後端運行環境，可執行 JavaScript 程式碼。</li></ul><span id="more"></span><hr><h2 id="mern-專案架構概覽"><a class="markdownIt-Anchor" href="#mern-專案架構概覽"></a> MERN 專案架構概覽</h2><p>一個典型的 MERN 專案會包含以下結構：</p><pre class="highlight"><code class="text">my-mern-project/
-├── backend/                 # 後端程式碼
-│   ├── models/              # MongoDB 資料模型
-│   ├── routes/              # Express 路由和 API
-│   └── server.js            # Node.js 伺服器入口
-├── frontend/                # 前端程式碼
-│   ├── src/
-│   │   ├── components/      # React 組件
-│   │   ├── pages/           # 應用程式頁面
-│   │   └── App.js           # React 應用入口
-├── .env                     # 環境變數配置
-├── package.json             # 依賴與腳本設定
-└── README.md                # 專案說明文件
+<!DOCTYPE html><html lang="zh-TW"><head><meta charset="utf-8"><title>MERN 專案STEP | HenRsの小窩</title><meta name="author" content="HenRs"><meta name="description" content="有關於『我』"><meta name="keywords" content=""><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><link rel="icon" href="/images/avatar.webp"><link rel="preconnect" href="https://s4.zstatic.net"><script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"><link rel="preconnect" href="https://fonts.googleapis.cn"><link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"><script>const mixins={}</script><script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script><script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script><link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"><script src="/js/lib/highlight.js"></script><script src="/js/lib/preview.js"></script><link rel="stylesheet" href="/css/main.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="layout"><transition name="fade"><div id="loading" v-show="loading"><div id="loading-circle"><h2>LOADING</h2><p>加載中···請稍後，如過慢請清理緩存</p><img src="/images/loading.gif"></div></div></transition><div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}"><nav id="desktop-menu"><a class="title" href="/"><span>HENRSの小窩</span> </a><a href="/"><i class="fa-solid fa-house fa-fw"></i> <span>&ensp;首頁</span> </a><a href="/about"><i class="fa-solid fa-id-card fa-fw"></i> <span>&ensp;關於</span> </a><a href="/archives"><i class="fa-solid fa-box-archive fa-fw"></i> <span>&ensp;項目</span> </a><a href="/categories"><i class="fa-solid fa-bookmark fa-fw"></i> <span>&ensp;類別</span> </a><a href="/tags"><i class="fa-solid fa-tags fa-fw"></i> <span>&ensp;標籤</span></a></nav><nav id="mobile-menu"><div class="title" @click="showMenuItems = !showMenuItems"><i class="fa-solid fa-bars fa-fw"></i> <span>&emsp;HENRSの小窩</span></div><transition name="slide"><div class="items" v-show="showMenuItems"><a href="/"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-house fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">首頁</div></div></a><a href="/about"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-id-card fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">關於</div></div></a><a href="/archives"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-box-archive fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">項目</div></div></a><a href="/categories"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-bookmark fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">類別</div></div></a><a href="/tags"><div class="item"><div style="min-width:20px;max-width:50px;width:10%"><i class="fa-solid fa-tags fa-fw"></i></div><div style="min-width:100px;max-width:150%;width:20%">標籤</div></div></a></div></transition></nav></div><transition name="fade"><div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div></transition><div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'"><div class="article"><div><h1>MERN 專案STEP</h1></div><div class="info"><span class="date"><span class="icon"><i class="fa-solid fa-calendar fa-fw"></i> </span>2024/8/24</span></div><div class="content" v-pre><h3 id="7-在-serverjs-內-將剛剛新建的-routes-給連結進來"><a class="markdownIt-Anchor" href="#7-在-serverjs-內-將剛剛新建的-routes-給連結進來"></a> 7. 在 server.js 內 將剛剛新建的 Routes 給連結進來</h3><pre class="highlight"><code class="js">const authRoute = require(&quot;./routes&quot;).auth;
 
-</code></pre><h2 id="專案步驟與核心功能"><a class="markdownIt-Anchor" href="#專案步驟與核心功能"></a> 專案步驟與核心功能</h2><h3 id="1-打開-vs-code-先在終端運行以下指令如未特別設置全都默認即可"><a class="markdownIt-Anchor" href="#1-打開-vs-code-先在終端運行以下指令如未特別設置全都默認即可"></a> 1. 打開 VS Code 先在終端運行以下指令，如未特別設置全都默認即可</h3><pre class="highlight"><code class="bash">npm init
-npm install express dotenv bcrypt mongoose
-</code></pre><h3 id="2-設置-mongodb-資料庫"><a class="markdownIt-Anchor" href="#2-設置-mongodb-資料庫"></a> 2. 設置 MongoDB 資料庫</h3><p>在 MongoDB Atlas 或本地端設置資料庫，並連結到專案：</p><pre class="highlight"><code class="js">const mongoose = require(&quot;mongoose&quot;);
-const MONGO_URI = process.env.MONGO_URI;
-require(&quot;dotenv&quot;).config();
+app.use(&quot;/api/user&quot;, authRoute);
+</code></pre><h3 id="8-在-serverjs-內-將-express等相關插件導入"><a class="markdownIt-Anchor" href="#8-在-serverjs-內-將-express等相關插件導入"></a> 8. 在 server.js 內 將 express…等相關插件導入</h3><pre class="highlight"><code class="bash">npm install cors // 跨平台所需的
+</code></pre><pre class="highlight"><code class="js">const express = require(&quot;express&quot;);
+const app = express();
+const cors = require(&quot;cors&quot;);
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() =&gt; console.log(&quot;MongoDB 連線成功&quot;))
-  .catch((err) =&gt; console.error(&quot;MongoDB 連線失敗:&quot;, err));
-</code></pre><h3 id="3-建立-user-及-其他資料的相關-model"><a class="markdownIt-Anchor" href="#3-建立-user-及-其他資料的相關-model"></a> 3. 建立 User 及 其他資料的相關 Model</h3><p>基礎的 Schema 條件建置：</p><pre class="highlight"><code class="js">const mongoose = require(&quot;mongoose&quot;);
-const &#123; Schema &#125; = mongoose;
+app.use(express.json()); //express 必須
+pp.use(express.urlencoded(&#123; extended: true &#125;)); //express post 解碼必須
+app.use(cors());
 
-const userSchema = new Schema(&#123;
-  username: &#123;
-    type: String,
-    required: true,
-    minlength: [3, &quot;請至少輸入三個字元&quot;],
-    maxlength: [12, &quot;超出字數限制!!&quot;],
-  &#125;,
-  email: &#123;
-    type: String,
-    required: true,
-    minlength: [5, &quot;請至少輸入五個字元&quot;],
-    maxlength: [25, &quot;超出字元限制!!&quot;],
-  &#125;,
-  password: &#123;
-    type: String,
-    minlength: [8, &quot;Password must be at least 8 characters&quot;],
-    maxlengeh: [15, &quot;Password must be less than 15 characters&quot;],
-    validate: &#123;
-      validator: function (v) &#123;
-        // 檢查是否包含至少一個字母和一個數字，但後續會透過'JOI'這個插件實現 這邊只是用於記憶
-        return /^(?=.*[A-Za-z])(?=.*\d)/.test(v);
-      &#125;,
-      message: &quot;Password must contain at least one letter and one number&quot;,
-    &#125;,
-  &#125;,
-  role: &#123;
-    type: String,
-    required: true,
-    enum: [&quot;Student&quot;, &quot;Instructor&quot;],
-  &#125;,
-  date: &#123;
-    type: Date,
-    default: Date.now,
-  &#125;,
+app.listen(8080, () =&gt; &#123;
+  console.log(&quot;正在運行在8080&quot;);
 &#125;);
-</code></pre><p>建立 mdoel 的規則並透過 bcrypt 加密，並在 save 動作前觸發：</p><ul><li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/bcrypt">bcrypt</a></li></ul><pre class="highlight"><code class="js">const bcrypt = require(&quot;bcrypt&quot;);
-const saltRounds = 14; //加密複雜度 建議在10-14間 step = 2
-
-userSchema.methods.isStudent = function () &#123;
-  return this.role == &quot;Student&quot;; //無法用 arrow fc 會抓不到 this
-&#125;;
-
-userSchema.methods.isInstructor = function () &#123;
-  return this.role == &quot;Instructor&quot;;
-&#125;;
-
-userSchema.methods.comparePassword = async function (password, cb) &#123;
-  let result;
-  try &#123;
-    result = await bcrypt.compare(password, this.password);
-    return cb(null, result);
-  &#125; catch (e) &#123;
-    return cb(e, result);
-  &#125;
-&#125;;
-
-userSchema.pre(&quot;save&quot;, async function (next) &#123;
-  //表示在 save 前觸發此 fc
-  if (this.isNew || this.isModified(&quot;password&quot;)) &#123;
-    //isNew 確認是否為新文檔 || isModified 確認是否經修改過 兩者為 mongoose 內建函數
-    const hashedPass = await bcrypt.hash(this.password, saltRounds);
-    this.password = hashedPass;
-  &#125;
-  next();
-  //把主動權交給下一個 middleware
-&#125;);
-
-module.exports = mongoose.model(&quot;User&quot;, userSchema);
-</code></pre><h3 id="4-透過-joi-建立各項驗證"><a class="markdownIt-Anchor" href="#4-透過-joi-建立各項驗證"></a> 4. 透過 JOI 建立各項驗證</h3><p>用於驗證用戶經過 Routes 的數據是否符合要求 ：</p><ul><li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/joi">Joi</a></li></ul><pre class="highlight"><code class="js">const Joi = require(&quot;joi&quot;);
-
-const registorValidation = (data) =&gt; &#123;
-  const schema = Joi.object(&#123;
-    username: Joi.string().min(3).max(12).required().messages(&#123;
-      &quot;string.min&quot;: &quot;用戶名稱長度至少 3 個字元。&quot;,
-      &quot;string.max&quot;: &quot;用戶名稱長度不能超過 12 個字元。&quot;,
-      &quot;string.empty&quot;: &quot;用戶名稱不能為空。&quot;,
-      &quot;any.required&quot;: &quot;用戶名稱為必填項。&quot;,
-    &#125;),
-    email: Joi.string().min(5).max(25).required().email().messages(&#123;
-      &quot;string.min&quot;: &quot;電子信箱至少 3 個字元。&quot;,
-      &quot;string.max&quot;: &quot;電子信箱不能超過 12 個字元。&quot;,
-      &quot;string.email&quot;: &quot;請輸入有效的電子郵件地址。&quot;,
-      &quot;string.empty&quot;: &quot;電子信箱不能為空。&quot;,
-      &quot;any.required&quot;: &quot;電子信箱為必填項&quot;,
-    &#125;),
-    password: Joi.string()
-      .min(8)
-      .max(15)
-      .required()
-      .pattern(new RegExp(&quot;^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]&#123;8,15&#125;$&quot;))
-      .messages(&#123;
-        &quot;string.min&quot;: &quot;密碼至少 8個字元。&quot;,
-        &quot;string.max&quot;: &quot;密碼不能超過 15 個字元。&quot;,
-        &quot;string.pattern.base&quot;:
-          &quot;密碼必须至少包含一個字母和一個數字，且長度在 8 到 15 個字元之間。&quot;,
-        &quot;string.empty&quot;: &quot;密碼不能為空。&quot;,
-        &quot;any.required&quot;: &quot;密碼是必填項。&quot;,
-      &#125;),
-    role: Joi.string()
-      .valid(&quot;Student&quot;, &quot;Instructor&quot;) // 限制為 &quot;Student&quot; 或 &quot;Instructor&quot;
-      .required()
-      .messages(&#123;
-        &quot;string.empty&quot;: &quot;身份不能為空。&quot;,
-        &quot;any.required&quot;: &quot;身份是必填的。&quot;,
-        &quot;any.invalid&quot;: &quot;身份必須是 Student 或 Instructor。&quot;,
-        &quot;any.only&quot;: &quot;身份必須是 Student 或 Instructor。&quot;,
-      &#125;),
-  &#125;);
-  return schema.validate(data);
-&#125;;
-
-const loginValidation = (data) =&gt; &#123;
-  const schema = Joi.object(&#123;
-    email: Joi.string().required().email().messages(&#123;
-      &quot;string.email&quot;: &quot;🚫此信箱尚未註册。&quot;,
-      &quot;string.empty&quot;: &quot;🚫電子信箱不能為空。&quot;,
-      &quot;any.required&quot;: &quot;電子信箱為必填項。&quot;,
-    &#125;),
-    password: Joi.string().required().messages(&#123;
-      &quot;string.pattern.base&quot;: &quot;🚫邮箱或密码错误，请重新输入。&quot;,
-      &quot;string.empty&quot;: &quot;🚫密碼不能為空。&quot;,
-      &quot;any.required&quot;: &quot;密碼是必填項。&quot;,
-    &#125;),
-  &#125;);
-  return schema.validate(data);
-&#125;;
-
-module.exports.registorValidation = registorValidation;
-module.exports.loginValidation = loginValidation;
-</code></pre><h3 id="5-建立-jwt-驗證的-middleware"><a class="markdownIt-Anchor" href="#5-建立-jwt-驗證的-middleware"></a> 5. 建立 JWT 驗證的 middleware</h3><p>透過 JWT 來驗證身份等相關資訊：</p><pre class="highlight"><code class="bash">npm install jsonwebtoken
-</code></pre><pre class="highlight"><code class="js">const JWT = require(&quot;jsonwebtoken&quot;); //JWT 驗證
-//驗證 token
-function authenticateToken(req, res, next) &#123;
-  const token = req.header(&quot;Authorization&quot;); // 從 Authorization 標頭中取出 token
-
-  if (!token) &#123;
-    return res.status(401).send(&quot;沒有提供 token&quot;);
-  &#125;
-
-  const jwtToken = token.replace(&quot;JWT &quot;, &quot;&quot;);
-
-  JWT.verify(jwtToken, process.env.PASSPORT_SECRET, (err, user) =&gt; &#123;
-    if (err) &#123;
-      return res.status(403).send(&quot;無效的 token&quot;);
-    &#125;
-    req.user = user; // 保存解析後的用戶信息
-    next(); // 通過驗證，繼續執行後續的路由
-  &#125;);
-&#125;
-</code></pre><h3 id="6-建立-express-後端-api"><a class="markdownIt-Anchor" href="#6-建立-express-後端-api"></a> 6. 建立 Express 後端 API</h3><p>設計 RESTful API，例如用於管理用戶的 CRUD 功能：</p><pre class="highlight"><code class="js">const router = require(&quot;express&quot;).Router();
+</code></pre><h1 class="stfont" id="如有設置-auth-外的-routes-未有則跳過"><a class="markdownIt-Anchor" href="#如有設置-auth-外的-routes-未有則跳過"></a> 如有設置 auth 外的 routes ，未有則跳過</h1><p> </p><h3 id="9-在根目錄新建一個-cofing-資料夾並建立-passportjs"><a class="markdownIt-Anchor" href="#9-在根目錄新建一個-cofing-資料夾並建立-passportjs"></a> 9. 在根目錄新建一個 cofing 資料夾，並建立 passport.js</h3><p>先安裝 passport-jwt 與 passport-local</p><ul><li><a target="_blank" rel="noopener" href="https://www.passportjs.org/packages/passport-jwt/">passport-jwt</a></li><li><a target="_blank" rel="noopener" href="https://www.passportjs.org/packages/passport-local/">passport-local</a></li></ul><pre class="highlight"><code class="bash">npm install passport-jwt
+npm install passport-local
+</code></pre><pre class="highlight"><code class="js">let JwtStrategy = require(&quot;passport-jwt&quot;).Strategy;
+let ExtractJwt = require(&quot;passport-jwt&quot;).ExtractJwt;
 const User = require(&quot;../model&quot;).user;
-const bcrypt = require(&quot;bcrypt&quot;); //用於加密用戶訊息 ex.password
 
-const registerValidation = require(&quot;../validation&quot;).registorValidation;
-const loginValidation = require(&quot;../validation&quot;).loginValidation;
-const editorValidation = require(&quot;../validation&quot;).editorValidation;
+module.exports = (passport) =&gt; &#123;
+  let opts = &#123;&#125;;
+  opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme(&quot;jwt&quot;);
+  //這個方法由前綴中提取 JWT，前提是 JWT 存在於以 jwt 为前缀的。
+  opts.secretOrKey = process.env.PASSPORT_SECRET;
+  // 當前配置.env 環境中的 secretOrKey 用來檢測 網站有無被非法盜用
 
-// 建立使用者
-router.post(&quot;/register&quot;, async (req, res) =&gt; &#123;
-  let &#123; username, email, password, role &#125; = req.body;
-  let &#123; error &#125; = registerValidation(req.body); //確認數據是否符合規定
-  if (error) &#123;
-    return res.status(400).send(error.details[0].message);
+  passport.use(
+    new JwtStrategy(opts, async function (jwt_payload, done) &#123;
+      try &#123;
+        let FUser = await User.findOne(&#123; _id: jwt_payload._id &#125;).exec();
+        //jwt_payload 回傳一個obj 裡面包含 email,_id,iat 但我們只要取_id 來查找身份
+        if (FUser) &#123;
+          return done(null, FUser);
+        &#125; else &#123;
+          return done(null, false, &#123; message: &quot;No user found&quot; &#125;); // 没有找到用户时，返回 false
+        &#125;
+      &#125; catch (e) &#123;
+        return done(e, false);
+      &#125;
+    &#125;)
+  );
+&#125;;
+</code></pre><h3 id="10-在-serverjs-將-passport-的-fc-導入"><a class="markdownIt-Anchor" href="#10-在-serverjs-將-passport-的-fc-導入"></a> 10. 在 server.js 將 passport 的 fc 導入</h3><pre class="highlight"><code class="js">const passport = require(&quot;passport&quot;);
+require(&quot;./config/passport&quot;)(passport);
+
+app.use(
+  &quot;/api/course&quot;,
+  passport.authenticate(&quot;jwt&quot;, &#123; session: false &#125;), //JWT 作為無狀態的認證方式，而不是依赖 session 來保存信息
+  courseRoute //如通過認證 才會進到這個Routes裡面
+);
+</code></pre><h3 id="11-在根目錄創建一個env-並根據步驟-9-設定"><a class="markdownIt-Anchor" href="#11-在根目錄創建一個env-並根據步驟-9-設定"></a> 11. 在根目錄創建一個.env 並根據步驟 9 設定</h3><pre class="highlight"><code class="text">PASSPORT_SECRET=&quot;你自己設定的值&quot;
+</code></pre><p class="centerP"><strong>恭喜完成後端部分的設定</strong></p><hr><h2 id="前端-react-部分"><a class="markdownIt-Anchor" href="#前端-react-部分"></a> 前端 React 部分</h2><p> <br> </p><h2 id="專案步驟與核心功能"><a class="markdownIt-Anchor" href="#專案步驟與核心功能"></a> 專案步驟與核心功能</h2><h3 id="1-打開-cmd-並貼上以下指令並將檔案移至與-serverjs-相同的資料夾"><a class="markdownIt-Anchor" href="#1-打開-cmd-並貼上以下指令並將檔案移至與-serverjs-相同的資料夾"></a> 1. 打開 cmd 並貼上以下指令，並將檔案移至與 server.js 相同的資料夾</h3><pre class="highlight"><code class="bash">cd Desktop
+npx create-react-app client
+</code></pre><h3 id="2-刪除-clinet-內部不必要的檔案"><a class="markdownIt-Anchor" href="#2-刪除-clinet-內部不必要的檔案"></a> 2. 刪除 clinet 內部不必要的檔案</h3><pre class="highlight"><code class="plaintext">src 內部 只留下App.js 和 index.js
+public 內部 只留index.html
+</code></pre><h3 id="3-安裝-react-router-dom"><a class="markdownIt-Anchor" href="#3-安裝-react-router-dom"></a> 3. 安裝 react-router-dom</h3><pre class="highlight"><code class="bash">cd Desktop
+cd &quot;server的資料夾&quot;
+cd client
+npm i react-router-dom
+</code></pre><h3 id="4-創建一個-component-的資料夾並建立-homejs-與-layoutjs"><a class="markdownIt-Anchor" href="#4-創建一個-component-的資料夾並建立-homejs-與-layoutjs"></a> 4. 創建一個 Component 的資料夾，並建立 Home.js 與 Layout.js</h3><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/1410822048/My-storehouse@main/home-component.js">Home.js</a></p><p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/1410822048/My-storehouse@main/Layout.js">Layout.js</a></p><h3 id="5-在-appjs-內將-react-router-dom-導入"><a class="markdownIt-Anchor" href="#5-在-appjs-內將-react-router-dom-導入"></a> 5. 在 App.js 內將 react-router-dom 導入</h3><pre class="highlight"><code class="js">import &#123; BrowserRouter, Routes, Route &#125; from &quot;react-router-dom&quot;;
+import Layout from &quot;./components/Layout&quot;;
+import Home from &quot;./components/home-component&quot;;
+
+function App() &#123;
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path=&quot;/&quot;element=&#123;&lt;Layout /&gt;&#125;&gt;
+          &lt;Route index element=&#123;&lt;Home /&gt;&#125;/&gt;
+        &lt;Route&gt;
+      &lt;Routes&gt;
+    &lt;BrowserRouter&gt;
+  )
+&#125;
+</code></pre><h3 id="6-基於網頁構成是用-bootstrap-故在-indexhtml-需貼上相應連結"><a class="markdownIt-Anchor" href="#6-基於網頁構成是用-bootstrap-故在-indexhtml-需貼上相應連結"></a> 6. 基於網頁構成是用 bootstrap ，故在 index.html 需貼上相應連結</h3><pre class="highlight"><code class="HTML">  &lt;head&gt;
+    &lt;link
+      href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot;
+      rel=&quot;stylesheet&quot;
+      integrity=&quot;sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH&quot;
+      crossorigin=&quot;anonymous&quot;
+    /&gt;
+    &lt;script
+      src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&quot;
+      integrity=&quot;sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz&quot;
+      crossorigin=&quot;anonymous&quot;
+    &gt;&lt;/script&gt;
+  &lt;/head&gt;
+</code></pre><h3 id="7-安裝-axios-套件並建立一個-services-的資料夾"><a class="markdownIt-Anchor" href="#7-安裝-axios-套件並建立一個-services-的資料夾"></a> 7. 安裝 axios 套件，並建立一個 services 的資料夾</h3><pre class="highlight"><code class="bash">cd client
+npm i axios
+</code></pre><p>建立 auth.service 的檔案，並記得跟後端所配合的 Routes 同個請求方式</p><pre class="highlight"><code class="js">import axios from &quot;axios&quot;;
+const API_URL = &quot;http://localhost:8080/api/user&quot;;
+
+class AuthService &#123;
+  login(email, password) &#123;
+    //登入用
+    return axios.post(API_URL + &quot;/login&quot;, &#123;
+      email,
+      password,
+    &#125;);
   &#125;
-  const emailExist = await User.findOne(&#123; email &#125;).exec();
-  if (emailExist) &#123;
-    return res.status(400).send(&quot;該信箱已被註册，請更换別的信箱。&quot;);
+  logout() &#123;
+    // 登出用
+    localStorage.removeItem(&quot;user&quot;);
   &#125;
-  try &#123;
-    let newUser = new User(&#123; username, email, password, role &#125;);
-    await newUser.save();
-    return res.send(&#123;
-      msg: &quot;使用者成功儲存&quot;,
-      user: &#123;
-        id: newUser._id,
-        username: newUser.username,
-        email: newUser.email,
-        password: newUser.password,
-        role: newUser.role,
+  register(username, email, password, role) &#123;
+    //註冊用
+    return axios.post(API_URL + &quot;/register&quot;, &#123;
+      username,
+      email,
+      password,
+      role,
+    &#125;);
+  &#125;
+  getCurrentUser() &#123;
+    //取得當前使用者
+    return JSON.parse(localStorage.getItem(&quot;user&quot;));
+  &#125;
+  editCurrentUserProfile(_id, updatedData) &#123;
+    //更新使用者資訊
+    let token;
+    if (localStorage.getItem(&quot;user&quot;)) &#123;
+      token = JSON.parse(localStorage.getItem(&quot;user&quot;)).token;
+    &#125; else &#123;
+      token = &quot;&quot;;
+    &#125;
+    return axios.patch(`$&#123;API_URL&#125;/$&#123;_id&#125;`, updatedData, &#123;
+      headers: &#123;
+        Authorization: token,
       &#125;,
     &#125;);
-  &#125; catch (e) &#123;
-    return res.status(500).send(&quot;無法儲存使用者&quot;);
   &#125;
-&#125;);
-
-//用戶登入
-router.post(&quot;/login&quot;, async (req, res) =&gt; &#123;
-  let &#123; email, password &#125; = req.body;
-  let &#123; error &#125; = loginValidation(req.body);
-  if (error) &#123;
-    return res.status(400).send(error.details[0].message);
-  &#125;
-  const FUser = await User.findOne(&#123; email &#125;).exec();
-  if (!FUser) &#123;
-    return res.status(400).send(&quot;找不到此用戶，請確認信箱是否正確。&quot;);
-  &#125;
-  FUser.comparePassword(password, (err, isMatch) =&gt; &#123;
-    if (err) return res.status(500).send(err);
-    if (isMatch) &#123;
-      const tokenObj = &#123; _id: FUser._id, email: FUser.email &#125;;
-      const token = JWT.sign(tokenObj, process.env.PASSPORT_SECRET);
-      return res.send(&#123;
-        msg: &quot;成功登入&quot;,
-        token: &quot;JWT &quot; + token,
-        user: FUser,
-      &#125;);
-    &#125; else &#123;
-      return res.status(401).send(&quot;密碼錯誤&quot;);
-    &#125;
-  &#125;);
-&#125;);
-
-//用戶資料修改
-router.patch(&quot;/:_id&quot;, authenticateToken, async (req, res) =&gt; &#123;
-  let &#123; _id &#125; = req.params;
-
-  // 驗證請求數據
-  let &#123; error &#125; = editorValidation(req.body);
-  if (error) &#123;
-    return res.status(400).send(&#123; error: error.details[0].message &#125;); // 返回具體錯誤信息
-  &#125;
-
-  try &#123;
-    // 查找用戶
-    let Uf = await User.findById(_id).exec();
-    if (!Uf) &#123;
-      return res.status(404).send(&#123; error: &quot;找不到此用戶&quot; &#125;); // 用戶未找到
-    &#125;
-
-    // 驗證當前用戶是否與要修改的用戶相同
-    if (Uf._id.toString() === req.user._id.toString()) &#123;
-      if (Object.keys(req.body).length === 0) &#123;
-        return res.status(400).send(&#123; error: &quot;沒有提供更新資料&quot; &#125;);
-      &#125;
-
-      let updatedData = req.body;
-
-      // 如果有提供密碼，則進行加密處理
-      if (updatedData.password) &#123;
-        const salt = await bcrypt.genSalt(10); // 生成salt
-        updatedData.password = await bcrypt.hash(updatedData.password, salt); // 使用salt加密密碼
-      &#125;
-
-      // 更新用戶資料
-      const updatedUser = await User.findByIdAndUpdate(_id, updatedData, &#123;
-        new: true,
-        runValidators: true,
-      &#125;);
-      console.log(updatedUser);
-
-      if (!updatedUser) &#123;
-        return res.status(500).send(&#123; error: &quot;更新失敗&quot; &#125;);
-      &#125;
-
-      return res.send(&#123; msg: &quot;資料被更新&quot;, user: updatedUser &#125;);
-    &#125; else &#123;
-      return res.status(403).send(&#123; error: &quot;您無權更改此資料&quot; &#125;); // 權限錯誤
-    &#125;
-  &#125; catch (e) &#123;
-    return res.status(500).send(&#123; error: e.message &#125;); // 伺服器錯誤
-  &#125;
-&#125;);
-
-module.exports = router;
+&#125;
+const authServiceInstance = new AuthService();
+export default authServiceInstance;
 </code></pre><div class="pagination"><a href="#" class="page-link" data-page-prefix="MERN" data-page="1">1</a> <a href="#" class="page-link" data-page-prefix="MERN" data-page="2">2</a> <a href="#" class="page-link" data-page-prefix="MERN" data-page="3">3</a></div></div></div><footer id="footer"><div id="footer-wrap"><div>&copy; 2024 - 2024 HenRsの小窩 <span id="footer-icon"><i class="fa-solid fa-font-awesome fa-fw"></i> </span>&commat;HenRs</div><div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a></div></div></footer></div><transition name="fade"><div id="preview" ref="preview" v-show="previewShow"><img id="preview-content" ref="previewContent"></div></transition></div><script src="/js/main.js" defer></script><canvas id="fireworks" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:32767"></canvas><script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js"></script><script src="/js/fireworks.min.js" defer></script><script src="/js/commonpage.min.js" defer></script></body></html>
